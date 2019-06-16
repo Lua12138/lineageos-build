@@ -22,7 +22,10 @@ install:
 before_script:
 - cd ~/android
 - travis_retry yes | repo init -u https://github.com/LineageOS/android.git -b cm-14.1
-- travis_wait 60 travis_retry repo sync -j 16 -c &>~/build.log
+- rm ~/nohup.out
+- nohup travis_retry repo sync -j 16 -c &
+- while true; do  sleep 9m; if [ -z `pgrep python` ]; then break; else ps -ef | grep python --color; fi; done
+- ps -ef
 script:
 - source /android/build/envsetup.sh
 - croot
@@ -30,4 +33,4 @@ script:
 - brunch cancro
 after_failure:
 - echo "==========Build Failed============"
-- tail --lines=2000 ~/build.log
+- tail --lines=2000 ~/nohup.out
