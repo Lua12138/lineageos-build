@@ -23,8 +23,8 @@ install:
 - export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
 before_script:
 - cd ~/android
-- travis_retry yes | repo init -u https://github.com/LineageOS/android.git -b cm-14.1
-- travis_wait 120 travis_retry repo sync -j 16 -c &>>/dev/null
+- travis_retry "yes | repo init -u https://github.com/LineageOS/android.git -b cm-14.1"
+- travis_wait 120 "travis_retry repo sync -j 16 -c &>>/dev/null"
 script:
 - source /android/build/envsetup.sh
 - croot
