@@ -22,7 +22,7 @@ install:
 before_script:
 - cd ~/android
 - travis_retry yes | repo init -u https://github.com/LineageOS/android.git -b cm-14.1
-- rm ~/nohup.out
+- rm -f ~/nohup.out
 - nohup travis_retry repo sync -j 16 -c &
 - while true; do  sleep 9m; if [ -z `pgrep python` ]; then break; else ps -ef | grep python --color; fi; done
 - ps -ef
