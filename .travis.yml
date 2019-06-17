@@ -30,7 +30,7 @@ before_script:
 script:
 - travis_wait 120 source ~/android/build/envsetup.sh
 - croot
-- travis_wait 120 breakfast cancro
+- breakfast cancro || ( python $TRAVIS_BUILD_DIR/repo.modify.py ~/android/.repo/local_manifests/roomservice.xml && breakfast canro )
 - nohup brunch cancro &
 - travis_wait 360 while true; do  sleep 9m; if [ -z `pgrep make` ]; then break; else echo "It's Building now"; fi; done
 after_failure:
