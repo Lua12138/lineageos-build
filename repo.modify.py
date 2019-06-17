@@ -30,4 +30,4 @@ if __name__ == "__main__":
     if not hasXiaomi:
         tree.getroot().append(create_node('project',{'name':'TheMuppets/proprietary_vendor_xiaomi','path':'vendor/xiaomi','remote':'github'}, ''))
 
-    tree.write('test.xml', encoding='utf-8', xml_declaration=True)
+    tree.write(sys.argv[1], encoding='utf-8', xml_declaration=True)
