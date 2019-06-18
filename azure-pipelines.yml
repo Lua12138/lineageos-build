@@ -18,8 +18,8 @@ steps:
     export WITH_SU=true
     cd ~/android
     yes | repo init -u https://github.com/LineageOS/android.git -b cm-14.1
-    repo sync -j 16 -c
+    repo sync -j 32 -c
     source ~/android/build/envsetup.sh
     croot
-    breakfast cancro || ( python $ANDROID_BUILD_TOP/repo.modify.py $ANDROID_BUILD_TOP/.repo/local_manifests/roomservice.xml && breakfast canro )
+    breakfast cancro || ( python $BUILD_SOURCESDIRECTORY/repo.modify.py $ANDROID_BUILD_TOP/.repo/local_manifests/roomservice.xml && breakfast canro )
     brunch cancro
