@@ -1,12 +1,8 @@
-name: $(Date:yyyyMMdd)$(Rev:.r)
-resources:
-  containers:
-  - container: linux
-    image: ubuntu:18.04
-jobs:
-- job: Build
-  steps:
-  - bash: |
+pool:
+   vmImage: 'Ubuntu-16.04'
+
+steps:
+- bash: |
     sudo apt-get update
     sudo apt-get install -y ninja-build bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-8-jdk
     mkdir -p ~/bin
@@ -27,4 +23,3 @@ jobs:
     croot
     breakfast cancro || ( python $TRAVIS_BUILD_DIR/repo.modify.py ~/android/.repo/local_manifests/roomservice.xml && breakfast canro )
     brunch cancro
-    displayName: BuildAll
