@@ -27,3 +27,4 @@ jobs:
     croot
     breakfast cancro || ( python $TRAVIS_BUILD_DIR/repo.modify.py ~/android/.repo/local_manifests/roomservice.xml && breakfast canro )
     brunch cancro
+    displayName: BuildAll
